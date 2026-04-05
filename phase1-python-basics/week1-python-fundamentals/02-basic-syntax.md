@@ -345,10 +345,12 @@ print(c())  # 2
 ### 1. 缩进错误
 
 ```python
-# ❌ 错误：混用空格和 Tab
-if True:
-    print("使用4个空格")
-	print("使用Tab")  # IndentationError!
+# ❌ 错误：混用空格和 Tab 会导致 IndentationError
+# 下面的代码中第二行用了 Tab，第一行用了空格：
+# if True:
+#     print("使用4个空格")   <- 4个空格
+#     print("使用Tab")       <- Tab键（看起来一样，但实际不同！）
+# 运行时报错：IndentationError: inconsistent use of tabs and spaces
 
 # ✅ 正确：统一使用 4 个空格（PEP 8 规范）
 if True:

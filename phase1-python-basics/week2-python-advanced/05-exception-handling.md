@@ -215,21 +215,22 @@ except Exception as e:
     print("出错了")  # 不知道是哪里出错，也不知道怎么处理
 
 # ✅ 正确：针对性捕获，各处理各的
-try:
-    result = int(user_input)
-except ValueError:
-    return error_response("输入必须是数字")
+def handle_request(user_input, write_to_db, error_response):
+    try:
+        result = int(user_input)
+    except ValueError:
+        return error_response("输入必须是数字")
 
-try:
-    data = json.loads(result)
-except json.JSONDecodeError:
-    return error_response("解析 JSON 失败")
+    try:
+        data = json.loads(result)
+    except json.JSONDecodeError:
+        return error_response("解析 JSON 失败")
 
-try:
-    write_to_db(data)
-except DatabaseError as e:
-    logger.error(f"数据库写入失败：{e}")
-    raise
+    try:
+        write_to_db(data)
+    except DatabaseError as e:
+        logger.error(f"数据库写入失败：{e}")
+        raise
 ```
 
 ## 7. 异常处理的最佳实践
