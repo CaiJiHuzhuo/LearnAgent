@@ -303,7 +303,7 @@ class ProductionPipeline:
         # 构建 prompt
         context_str = json.dumps(additional_context or {}, ensure_ascii=False)
         messages = [
-            {"role": "system", "content": f"你是专业的 {topic.replace('-', ' ')} 系统。"},
+            {"role": "system", "content": f"你是专业的 向量数据库 系统。"},
             {"role": "user", "content": f"处理请求：{input_text}\n上下文：{context_str}"}
         ]
 
