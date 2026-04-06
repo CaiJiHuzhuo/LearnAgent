@@ -130,7 +130,7 @@ System.out.println(s1 == s3);  // true（同一常量池引用）
 1. 无内存碎片，无需定期整理
 2. 可设置期望最大停顿时间，适合 Web 服务
 3. 大堆下比 CMS 更稳定，Concurrent Mode Failure 风险低
-4. JDK 9+ 默认收集器，社区持续维化
+4. JDK 9+ 默认收集器，社区持续维护
 
 ---
 
